@@ -3,12 +3,12 @@
  */
 package GameMechanicPrototype;
 
-public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-    }
+/* FrameDemo.java requires no other files. */
+public class App extends JFrame {
+     
+
 }
