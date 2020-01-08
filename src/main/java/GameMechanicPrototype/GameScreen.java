@@ -25,13 +25,31 @@ public class GameScreen extends JFrame {
     private void addTestViewPanelToContentPane(Container contentPane){
         JPanel testViewPanel = new JPanel();
         testViewPanel.setName("Test View Panel");
+        addChildrenToTestViewPanel(testViewPanel);
         contentPane.add(testViewPanel);
+    }
+
+    private void addChildrenToTestViewPanel(JPanel testViewPanel){
+        JPanel codePieces = new JPanel();
+        codePieces.setName("Test View Code Pieces Panel");
+        testViewPanel.add(codePieces);
+
+        JPanel codeEditor = new JPanel();
+        codeEditor.setName("Test View Code Editor Panel");
+        testViewPanel.add(codeEditor);
     }
 
     private void addProdViewPanelToContentPane(Container contentPane){
         JPanel prodViewPanel = new JPanel();
         prodViewPanel.setName("Prod View Panel");
         contentPane.add(prodViewPanel);
-    }
 
+        JPanel codePieces = new JPanel();
+        codePieces.setName("Prod View Code Pieces Panel");
+        prodViewPanel.add(codePieces);
+
+        JPanel codeEditor = new JPanel();
+        codeEditor.setName("Prod View Code Editor Panel");
+        prodViewPanel.add(codeEditor);
+    }
 }

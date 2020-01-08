@@ -66,4 +66,36 @@ public class GameScreenTest {
 
         assertEquals(expectedName, this.screen.getContentPane().getComponent(1).getName());
     }
+
+    @Test
+    public void codePiecesPanelShouldBeAddedToTestViewPanel() {
+        String expectedName = "Test View Code Pieces Panel";
+        JPanel testView = (JPanel)this.screen.getContentPane().getComponent(0);
+
+        assertEquals(expectedName, testView.getComponent(0).getName());
+    }
+
+    @Test
+    public void codeEditorPanelShouldBeAddedToTestViewPanel() {
+        String expectedName = "Test View Code Editor Panel";
+        JPanel testView = (JPanel)this.screen.getContentPane().getComponent(0);
+
+        assertEquals(expectedName, testView.getComponent(1).getName());
+    }
+
+    @Test
+    public void codePiecesShouldBeAddedToProdViewPanel() {
+        String expectedName = "Prod View Code Pieces Panel";
+        JPanel testView = (JPanel)this.screen.getContentPane().getComponent(1);
+
+        assertEquals(expectedName, testView.getComponent(0).getName());
+    }
+
+    @Test
+    public void codeEditorShouldBeAddedToProdViewPanel() {
+        String expectedName = "Prod View Code Editor Panel";
+        JPanel testView = (JPanel)this.screen.getContentPane().getComponent(1);
+
+        assertEquals(expectedName, testView.getComponent(1).getName());
+    }
 }
