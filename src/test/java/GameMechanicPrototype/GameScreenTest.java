@@ -40,8 +40,8 @@ public class GameScreenTest {
     }
 
     @Test
-    public void gameScreenContentPaneShouldHaveFlowLayout(){
-        String expectedLayout = FlowLayout.class.toString();
+    public void gameScreenContentPaneShouldHaveBoxLayout(){
+        String expectedLayout = BoxLayout.class.toString();
 
         assertEquals(expectedLayout, this.screen.getContentPane().getLayout().getClass().toString());
     }
@@ -54,33 +54,15 @@ public class GameScreenTest {
     }
 
     @Test
-    public void codePiecesPanelIsNamed_CodePiecesPanel() {
-        String expectedName = "Code Pieces Panel";
+    public void testViewPanelIsNamed_TestViewPanel() {
+        String expectedName = "Test View Panel";
 
         assertEquals(expectedName, this.screen.getContentPane().getComponent(0).getName());
     }
 
     @Test
-    public void codePiecesPanelShouldHaveLabelWithTextThatSays_CodePieces(){
-        String expectedText = "CODE PIECES";
-        JPanel panel = (JPanel) this.screen.getContentPane().getComponent(0);
-        JLabel label = (JLabel) panel.getComponent(0);
-
-        assertEquals(expectedText, label.getText());
-    }
-
-    @Test
-    public void codeEditorPanelShouldHaveLabelWithTextThatSays_CodeEditor() {
-        String expectedText = "CODE EDITOR";
-        JPanel panel = (JPanel) this.screen.getContentPane().getComponent(1);
-        JLabel label = (JLabel) panel.getComponent(0);
-
-        assertEquals(expectedText, label.getText());
-    }
-
-    @Test
-    public void codeEditorPanelShouldBeNamed_CodeEditorPanel() {
-        String expectedName = "Code Editor Panel";
+    public void prodViewPanelShouldBeNamed_ProdViewPanel() {
+        String expectedName = "Prod View Panel";
 
         assertEquals(expectedName, this.screen.getContentPane().getComponent(1).getName());
     }

@@ -16,35 +16,22 @@ public class GameScreen extends JFrame {
         this.setName("Main Game Screen");
         this.setTitle("LEARN TDD");
         Container contentPane = this.getContentPane();
-        contentPane.setLayout(new FlowLayout());
+        contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
         contentPane.setName("Main Screen Content Pane");
-        addCodePiecesPanelToContentPane(contentPane);
-        addCodeEditorPanelToContentPane(contentPane);
+        addTestViewPanelToContentPane(contentPane);
+        addProdViewPanelToContentPane(contentPane);
     }
 
-    private void addCodePiecesPanelToContentPane(Container contentPane){
-        JPanel codePiecesPanel = new JPanel();
-        codePiecesPanel.setName("Code Pieces Panel");
-        addCodePiecesTextLabelToCodePiecesPanel(codePiecesPanel);
-        contentPane.add(codePiecesPanel);
+    private void addTestViewPanelToContentPane(Container contentPane){
+        JPanel testViewPanel = new JPanel();
+        testViewPanel.setName("Test View Panel");
+        contentPane.add(testViewPanel);
     }
 
-    private void addCodePiecesTextLabelToCodePiecesPanel(JPanel codePiecesPanel){
-        JLabel codePiecesLabel = new JLabel();
-        codePiecesLabel.setText("CODE PIECES");
-        codePiecesPanel.add(codePiecesLabel);
+    private void addProdViewPanelToContentPane(Container contentPane){
+        JPanel prodViewPanel = new JPanel();
+        prodViewPanel.setName("Prod View Panel");
+        contentPane.add(prodViewPanel);
     }
 
-    private void addCodeEditorPanelToContentPane(Container contentPane){
-        JPanel codeEditorPanel = new JPanel();
-        codeEditorPanel.setName("Code Editor Panel");
-        addCodeEditorTextLabelToCodeEditorPanel(codeEditorPanel);
-        contentPane.add(codeEditorPanel);
-    }
-
-    private void addCodeEditorTextLabelToCodeEditorPanel(JPanel codeEditorPanel){
-        JLabel codeEditorLabel = new JLabel();
-        codeEditorLabel.setText("CODE EDITOR");
-        codeEditorPanel.add(codeEditorLabel);
-    }
 }
