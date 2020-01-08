@@ -9,79 +9,79 @@ import static org.junit.Assert.*;
 
 public class GameScreenTest {
 
-    @Test
-    public void gameScreenShouldHaveSizeOf1500By1000OnConstruction() {
-        Dimension expectedDimension = new Dimension(1500, 1000);
-        GameScreen gameScreen = new GameScreen(expectedDimension);
+    private GameScreen screen = new GameScreen();
 
-        assertEquals(expectedDimension, gameScreen.getSize());
+    @Test
+    public void gameScreenShouldHaveDefaultSizeOf1000By800OnConstruction() {
+        Dimension expectedDimension = new Dimension(1000, 800);
+
+        assertEquals(expectedDimension, this.screen.getSize());
     }
 
     @Test
     public void gameScreenDefaultCloseOperationShouldBeSetToExitOnCloseOnConstruction(){
-        GameScreen screen = new GameScreen(new Dimension(123, 123));
-        int EXIT_ON_CLOSE = 3;
+        int expectedCloseOperation = WindowConstants.EXIT_ON_CLOSE;
 
-        assertEquals(EXIT_ON_CLOSE, screen.getDefaultCloseOperation());
+        assertEquals(expectedCloseOperation, this.screen.getDefaultCloseOperation());
     }
 
     @Test
     public void gameScreenShouldHaveNameOfMainGameScreen(){
-        GameScreen screen = new GameScreen(new Dimension(2, 2));
         String expectedName = "Main Game Screen";
 
-        assertEquals(expectedName, screen.getName());
+        assertEquals(expectedName, this.screen.getName());
     }
 
     @Test
-    public void gameScreenTitleDefaultsToLearnTDD() {
-        GameScreen screen = new GameScreen(new Dimension(1500,1000));
-        String expectedTitle = "Learn TDD";
+    public void gameScreenTitleTextDefaultsTo_LearnTDD() {
+        String expectedTitle = "LEARN TDD";
 
-        assertEquals(expectedTitle, screen.getTitle());
+        assertEquals(expectedTitle, this.screen.getTitle());
     }
 
     @Test
     public void gameScreenContentPaneShouldHaveFlowLayout(){
-        GameScreen screen = new GameScreen(new Dimension(1, 1));
         String expectedLayout = FlowLayout.class.toString();
 
-        assertEquals(expectedLayout, screen.getContentPane().getLayout().getClass().toString());
+        assertEquals(expectedLayout, this.screen.getContentPane().getLayout().getClass().toString());
     }
 
     @Test
     public void gameScreenContentPaneShouldHaveNameOfMainScreenContentPane(){
-        GameScreen screen = new GameScreen(new Dimension(1, 1));
         String expectedName = "Main Screen Content Pane";
 
-        assertEquals(expectedName, screen.getContentPane().getName());
+        assertEquals(expectedName, this.screen.getContentPane().getName());
     }
 
     @Test
-    public void firstJPanelisNamedCodePieces() {
-        GameScreen screen = new GameScreen(new Dimension(1, 1));
-        String expectedName = "Code Pieces";
+    public void codePiecesPanelIsNamed_CodePiecesPanel() {
+        String expectedName = "Code Pieces Panel";
 
-        assertEquals(expectedName, screen.getContentPane().getComponent(0).getName());
+        assertEquals(expectedName, this.screen.getContentPane().getComponent(0).getName());
     }
 
     @Test
-    public void codePiecesPanelShouldHaveLabelWithTextThatSaysCodePieces(){
-        GameScreen screen = new GameScreen(new Dimension(2,2));
+    public void codePiecesPanelShouldHaveLabelWithTextThatSays_CodePieces(){
         String expectedText = "CODE PIECES";
-        JPanel panel = (JPanel) screen.getContentPane().getComponent(0);
+        JPanel panel = (JPanel) this.screen.getContentPane().getComponent(0);
         JLabel label = (JLabel) panel.getComponent(0);
 
         assertEquals(expectedText, label.getText());
     }
 
     @Test
-    public void codeEditorPanelShouldHaveLabelWithTextThatSaysCodeEditor() {
-        GameScreen screen = new GameScreen(new Dimension(2,2));
+    public void codeEditorPanelShouldHaveLabelWithTextThatSays_CodeEditor() {
         String expectedText = "CODE EDITOR";
-        JPanel panel = (JPanel) screen.getContentPane().getComponent(1);
+        JPanel panel = (JPanel) this.screen.getContentPane().getComponent(1);
         JLabel label = (JLabel) panel.getComponent(0);
 
         assertEquals(expectedText, label.getText());
+    }
+
+    @Test
+    public void codeEditorPanelShouldBeNamed_CodeEditorPanel() {
+        String expectedName = "Code Editor Panel";
+
+        assertEquals(expectedName, this.screen.getContentPane().getComponent(1).getName());
     }
 }
