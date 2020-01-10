@@ -6,8 +6,7 @@ import java.awt.*;
 public class GameScreen extends JFrame {
 
     public static void main(String[] args){
-        GameScreen screen = new GameScreen();
-        screen.setVisible(true);
+        new GameScreen();
     }
 
     public GameScreen() {
@@ -20,11 +19,14 @@ public class GameScreen extends JFrame {
         contentPane.setName("Main Screen Content Pane");
         addTestViewPanelToContentPane(contentPane);
         addProdViewPanelToContentPane(contentPane);
+//        this.pack();
+        this.setVisible(true);
     }
 
     private void addTestViewPanelToContentPane(Container contentPane){
         JPanel testViewPanel = new JPanel();
         testViewPanel.setName("Test View Panel");
+        testViewPanel.setPreferredSize(new Dimension(500, 400));
         addChildrenToTestViewPanel(testViewPanel);
         contentPane.add(testViewPanel);
     }
