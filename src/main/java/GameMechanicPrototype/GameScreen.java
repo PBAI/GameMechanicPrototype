@@ -11,7 +11,7 @@ public class GameScreen extends JFrame {
     }
 
     public GameScreen() {
-        this.setSize(new Dimension(1000, 800));
+        this.setSize(new Dimension(1020, 840));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setName("Main Game Screen");
         this.setTitle("LEARN TDD");
@@ -25,38 +25,47 @@ public class GameScreen extends JFrame {
     private void addTestViewPanelToContentPane(Container contentPane){
         JPanel testViewPanel = new JPanel();
         testViewPanel.setName("Test View Panel");
-        testViewPanel.setPreferredSize(new Dimension(500, 400));
-        testViewPanel.setBorder(BorderFactory.createDashedBorder(Color.CYAN));
+        testViewPanel.setBackground(Color.BLACK);
+        testViewPanel.setPreferredSize(new Dimension(1000, 420));
         addChildrenToTestViewPanel(testViewPanel);
         contentPane.add(testViewPanel);
+    }
+
+    private void addChildrenToTestViewPanel(JPanel testViewPanel){
+        JPanel codePiecesPanel = new JPanel();
+        codePiecesPanel.setName("Test View Code Pieces Panel");
+        codePiecesPanel.setBackground(Color.darkGray);
+        codePiecesPanel.setPreferredSize(new Dimension(500,400));
+        testViewPanel.add(codePiecesPanel);
+
+        JPanel codeEditorPanel = new JPanel();
+        codeEditorPanel.setName("Test View Code Editor Panel");
+        codeEditorPanel.setBackground(Color.DARK_GRAY);
+        codeEditorPanel.setPreferredSize(new Dimension(500, 400));
+        testViewPanel.add(codeEditorPanel);
     }
 
     private void addProdViewPanelToContentPane(Container contentPane){
         JPanel prodViewPanel = new JPanel();
         prodViewPanel.setName("Prod View Panel");
-        prodViewPanel.setPreferredSize(new Dimension(500, 400));
-        prodViewPanel.setBorder(BorderFactory.createDashedBorder(Color.RED));
+        prodViewPanel.setBackground(Color.BLACK);
+        prodViewPanel.setPreferredSize(new Dimension(1000, 420));
         addChildrenToProdViewPanel(prodViewPanel);
         contentPane.add(prodViewPanel);
     }
 
-    private void addChildrenToTestViewPanel(JPanel testViewPanel){
-        JPanel codePieces = new JPanel();
-        codePieces.setName("Test View Code Pieces Panel");
-        testViewPanel.add(codePieces);
-
-        JPanel codeEditor = new JPanel();
-        codeEditor.setName("Test View Code Editor Panel");
-        testViewPanel.add(codeEditor);
-    }
-
     private void addChildrenToProdViewPanel(JPanel prodViewPanel) {
-        JPanel codePieces = new JPanel();
-        codePieces.setName("Prod View Code Pieces Panel");
-        prodViewPanel.add(codePieces);
+        JPanel codePiecesPanel = new JPanel();
+        codePiecesPanel.setName("Prod View Code Pieces Panel");
+        codePiecesPanel.setBackground(Color.darkGray);
+        codePiecesPanel.setPreferredSize(new Dimension(500, 400));
+        prodViewPanel.add(codePiecesPanel);
 
-        JPanel codeEditor = new JPanel();
-        codeEditor.setName("Prod View Code Editor Panel");
-        prodViewPanel.add(codeEditor);
+
+        JPanel codeEditorPanel = new JPanel();
+        codeEditorPanel.setName("Prod View Code Editor Panel");
+        codeEditorPanel.setBackground(Color.darkGray);
+        codeEditorPanel.setPreferredSize(new Dimension(500, 400));
+        prodViewPanel.add(codeEditorPanel);
     }
 }
