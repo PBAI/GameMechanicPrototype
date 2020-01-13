@@ -69,7 +69,7 @@ public class GameScreenTest {
 
     @Test
     public void codePiecesPanelShouldBeAddedToTestViewPanel() {
-        String expectedName = "Test View Code Pieces Panel";
+        String expectedName = "Test View Panel Code Pieces Panel";
         JPanel testView = (JPanel)this.screen.getContentPane().getComponent(0);
 
         assertEquals(expectedName, testView.getComponent(0).getName());
@@ -77,7 +77,7 @@ public class GameScreenTest {
 
     @Test
     public void codeEditorPanelShouldBeAddedToTestViewPanel() {
-        String expectedName = "Test View Code Editor Panel";
+        String expectedName = "Test View Panel Code Editor Panel";
         JPanel testView = (JPanel)this.screen.getContentPane().getComponent(0);
 
         assertEquals(expectedName, testView.getComponent(1).getName());
@@ -85,7 +85,7 @@ public class GameScreenTest {
 
     @Test
     public void codePiecesShouldBeAddedToProdViewPanel() {
-        String expectedName = "Prod View Code Pieces Panel";
+        String expectedName = "Prod View Panel Code Pieces Panel";
         JPanel testView = (JPanel)this.screen.getContentPane().getComponent(1);
 
         assertEquals(expectedName, testView.getComponent(0).getName());
@@ -93,7 +93,7 @@ public class GameScreenTest {
 
     @Test
     public void codeEditorShouldBeAddedToProdViewPanel() {
-        String expectedName = "Prod View Code Editor Panel";
+        String expectedName = "Prod View Panel Code Editor Panel";
         JPanel testView = (JPanel)this.screen.getContentPane().getComponent(1);
 
         assertEquals(expectedName, testView.getComponent(1).getName());
@@ -127,9 +127,29 @@ public class GameScreenTest {
     @Test
     public void prodViewPanelSubPanelsHavePreferredSizeOf1000by420() {
         Dimension expectedDimension = new Dimension(500, 400);
-        JPanel prodViewPanel = (JPanel)this.screen.getContentPane().getComponent(0);
+        JPanel prodViewPanel = (JPanel)this.screen.getContentPane().getComponent(1);
 
         assertEquals(expectedDimension, prodViewPanel.getComponent(0).getPreferredSize());
         assertEquals(expectedDimension, prodViewPanel.getComponent(1).getPreferredSize());
+    }
+
+    @Test
+    public void codePiecesAndCodeEditorPanelsHaveDarkGrayBackgrounds() {
+        JPanel testViewPanel = (JPanel)this.screen.getContentPane().getComponent(0);
+        JPanel prodViewPanel = (JPanel)this.screen.getContentPane().getComponent(1);
+
+        assertEquals(Color.DARK_GRAY, testViewPanel.getComponent(0).getBackground());
+        assertEquals(Color.DARK_GRAY, testViewPanel.getComponent(1).getBackground());
+        assertEquals(Color.DARK_GRAY, prodViewPanel.getComponent(0).getBackground());
+        assertEquals(Color.DARK_GRAY, prodViewPanel.getComponent(1).getBackground());
+    }
+
+    @Test
+    public void testViewAndProdViewPanelsHaveBlackBackground(){
+        JPanel testViewPanel = (JPanel)this.screen.getContentPane().getComponent(0);
+        JPanel prodViewPanel = (JPanel)this.screen.getContentPane().getComponent(1);
+
+        assertEquals(Color.black, testViewPanel.getBackground());
+        assertEquals(Color.black, prodViewPanel.getBackground());
     }
 }

@@ -27,22 +27,8 @@ public class GameScreen extends JFrame {
         testViewPanel.setName("Test View Panel");
         testViewPanel.setBackground(Color.BLACK);
         testViewPanel.setPreferredSize(new Dimension(1000, 420));
-        addChildrenToTestViewPanel(testViewPanel);
+        createAndAddCodePiecesAndCodeEditorPanels(testViewPanel);
         contentPane.add(testViewPanel);
-    }
-
-    private void addChildrenToTestViewPanel(JPanel testViewPanel){
-        JPanel codePiecesPanel = new JPanel();
-        codePiecesPanel.setName("Test View Code Pieces Panel");
-        codePiecesPanel.setBackground(Color.darkGray);
-        codePiecesPanel.setPreferredSize(new Dimension(500,400));
-        testViewPanel.add(codePiecesPanel);
-
-        JPanel codeEditorPanel = new JPanel();
-        codeEditorPanel.setName("Test View Code Editor Panel");
-        codeEditorPanel.setBackground(Color.DARK_GRAY);
-        codeEditorPanel.setPreferredSize(new Dimension(500, 400));
-        testViewPanel.add(codeEditorPanel);
     }
 
     private void addProdViewPanelToContentPane(Container contentPane){
@@ -50,22 +36,22 @@ public class GameScreen extends JFrame {
         prodViewPanel.setName("Prod View Panel");
         prodViewPanel.setBackground(Color.BLACK);
         prodViewPanel.setPreferredSize(new Dimension(1000, 420));
-        addChildrenToProdViewPanel(prodViewPanel);
+        createAndAddCodePiecesAndCodeEditorPanels(prodViewPanel);
         contentPane.add(prodViewPanel);
     }
 
-    private void addChildrenToProdViewPanel(JPanel prodViewPanel) {
+    private void createAndAddCodePiecesAndCodeEditorPanels(JPanel panelToAddChildrenTo) {
         JPanel codePiecesPanel = new JPanel();
-        codePiecesPanel.setName("Prod View Code Pieces Panel");
-        codePiecesPanel.setBackground(Color.darkGray);
-        codePiecesPanel.setPreferredSize(new Dimension(500, 400));
-        prodViewPanel.add(codePiecesPanel);
-
+        codePiecesPanel.setName(panelToAddChildrenTo.getName() + " Code Pieces Panel");
+        codePiecesPanel.setBackground(Color.DARK_GRAY);
+        Dimension preferredSize = new Dimension(500, 400);
+        codePiecesPanel.setPreferredSize(preferredSize);
+        panelToAddChildrenTo.add(codePiecesPanel);
 
         JPanel codeEditorPanel = new JPanel();
-        codeEditorPanel.setName("Prod View Code Editor Panel");
-        codeEditorPanel.setBackground(Color.darkGray);
-        codeEditorPanel.setPreferredSize(new Dimension(500, 400));
-        prodViewPanel.add(codeEditorPanel);
+        codeEditorPanel.setName(panelToAddChildrenTo.getName() + " Code Editor Panel");
+        codeEditorPanel.setBackground(Color.DARK_GRAY);
+        codeEditorPanel.setPreferredSize(preferredSize);
+        panelToAddChildrenTo.add(codeEditorPanel);
     }
 }
