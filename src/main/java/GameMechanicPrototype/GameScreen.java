@@ -6,7 +6,8 @@ import java.awt.*;
 public class GameScreen extends JFrame {
 
     public static void main(String[] args){
-        new GameScreen();
+        GameScreen gameScreen = new GameScreen();
+        gameScreen.setVisible(true);
     }
 
     public GameScreen() {
@@ -19,16 +20,24 @@ public class GameScreen extends JFrame {
         contentPane.setName("Main Screen Content Pane");
         addTestViewPanelToContentPane(contentPane);
         addProdViewPanelToContentPane(contentPane);
-//        this.pack();
-        this.setVisible(true);
     }
 
     private void addTestViewPanelToContentPane(Container contentPane){
         JPanel testViewPanel = new JPanel();
         testViewPanel.setName("Test View Panel");
         testViewPanel.setPreferredSize(new Dimension(500, 400));
+        testViewPanel.setBorder(BorderFactory.createDashedBorder(Color.CYAN));
         addChildrenToTestViewPanel(testViewPanel);
         contentPane.add(testViewPanel);
+    }
+
+    private void addProdViewPanelToContentPane(Container contentPane){
+        JPanel prodViewPanel = new JPanel();
+        prodViewPanel.setName("Prod View Panel");
+        prodViewPanel.setPreferredSize(new Dimension(500, 400));
+        prodViewPanel.setBorder(BorderFactory.createDashedBorder(Color.RED));
+        addChildrenToProdViewPanel(prodViewPanel);
+        contentPane.add(prodViewPanel);
     }
 
     private void addChildrenToTestViewPanel(JPanel testViewPanel){
@@ -41,11 +50,7 @@ public class GameScreen extends JFrame {
         testViewPanel.add(codeEditor);
     }
 
-    private void addProdViewPanelToContentPane(Container contentPane){
-        JPanel prodViewPanel = new JPanel();
-        prodViewPanel.setName("Prod View Panel");
-        contentPane.add(prodViewPanel);
-
+    private void addChildrenToProdViewPanel(JPanel prodViewPanel) {
         JPanel codePieces = new JPanel();
         codePieces.setName("Prod View Code Pieces Panel");
         prodViewPanel.add(codePieces);
