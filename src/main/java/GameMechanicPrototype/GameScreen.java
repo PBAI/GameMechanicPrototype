@@ -1,5 +1,7 @@
 package GameMechanicPrototype;
 
+import com.sun.tools.javac.comp.Flow;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -24,6 +26,7 @@ public class GameScreen extends JFrame {
 
     private void addTestViewPanelToContentPane(Container contentPane){
         JPanel testViewPanel = new JPanel();
+        testViewPanel.setLayout(new BoxLayout(testViewPanel, BoxLayout.X_AXIS));
         testViewPanel.setName("Test View Panel");
         testViewPanel.setBackground(Color.BLACK);
         testViewPanel.setPreferredSize(new Dimension(1000, 420));
@@ -33,6 +36,7 @@ public class GameScreen extends JFrame {
 
     private void addProdViewPanelToContentPane(Container contentPane){
         JPanel prodViewPanel = new JPanel();
+        prodViewPanel.setLayout(new BoxLayout(prodViewPanel, BoxLayout.X_AXIS));
         prodViewPanel.setName("Prod View Panel");
         prodViewPanel.setBackground(Color.BLACK);
         prodViewPanel.setPreferredSize(new Dimension(1000, 420));
@@ -44,14 +48,49 @@ public class GameScreen extends JFrame {
         JPanel codePiecesPanel = new JPanel();
         codePiecesPanel.setName(panelToAddChildrenTo.getName() + " Code Pieces Panel");
         codePiecesPanel.setBackground(Color.DARK_GRAY);
-        Dimension preferredSize = new Dimension(500, 400);
+        Dimension preferredSize = new Dimension(500, 950);
         codePiecesPanel.setPreferredSize(preferredSize);
-        panelToAddChildrenTo.add(codePiecesPanel);
+        JScrollPane scrollPane = createScrollPane(codePiecesPanel);
+        panelToAddChildrenTo.add(scrollPane);
 
         JPanel codeEditorPanel = new JPanel();
         codeEditorPanel.setName(panelToAddChildrenTo.getName() + " Code Editor Panel");
         codeEditorPanel.setBackground(Color.DARK_GRAY);
         codeEditorPanel.setPreferredSize(preferredSize);
         panelToAddChildrenTo.add(codeEditorPanel);
+    }
+
+    private JScrollPane createScrollPane(JPanel panelToHoldPieces){
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setLayout(new ScrollPaneLayout());
+        scrollPane.setPreferredSize(new Dimension(500, 400));
+        JViewport viewport = scrollPane.getViewport();
+        panelToHoldPieces.add(makeLabelPanel());
+        panelToHoldPieces.add(makeLabelPanel());
+        panelToHoldPieces.add(makeLabelPanel());
+        panelToHoldPieces.add(makeLabelPanel());
+        panelToHoldPieces.add(makeLabelPanel());
+        panelToHoldPieces.add(makeLabelPanel());
+        panelToHoldPieces.add(makeLabelPanel());
+        panelToHoldPieces.add(makeLabelPanel());
+        panelToHoldPieces.add(makeLabelPanel());
+        viewport.add(panelToHoldPieces);
+        return scrollPane;
+    }
+
+    private JPanel makeLabelPanel() {
+        Dimension preferredSize = new Dimension(480, 100);
+        JPanel panel = new JPanel();
+        panel.setPreferredSize(preferredSize);
+        JLabel label = new JLabel();
+        label.setPreferredSize(preferredSize);
+        label.setOpaque(true);
+        label.setBackground(Color.LIGHT_GRAY);
+//        label.setBorder(BorderFactory.createLineBorder(color));
+        label.setText("  I AM A LABEL.");
+        panel.add(label);
+        return panel;
     }
 }
